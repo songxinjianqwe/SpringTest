@@ -8,5 +8,6 @@ public class Main {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("aop-beforeadvice.xml");
 		ArithmaticCalculator calculator = (ArithmaticCalculator) ctx.getBean("arithmaticCalculator");
 		System.out.println(calculator.add(1, 2));
+//		System.out.println(calculator.div(2, 0));
 	}
 }	

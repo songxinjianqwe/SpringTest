@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+	<bean id="people" class="beans.People">
+		<property name="name" value="NewSong"></property>
+		<property name="age" value="20"></property>
+		<property name="salary" value="200000"></property>
+		<property name="car" ref="car"></property>
+		<property name="car.price" value="320000"></property>
+	</bean>
+	
+	<bean id="people2" class="beans.People">
+		<constructor-arg value="NewSong"></constructor-arg>
+		<constructor-arg value="20"></constructor-arg>
+		<constructor-arg value="200000"></constructor-arg>
+		<constructor-arg ref="car"></constructor-arg>
+		<property name="car.price" value="320000"></property>
+	</bean>
+	<bean id="car" class="beans.Car">
+		<property name="name" value="Audi"></property>
+		<property name="price" value="230000"></property>
+	</bean>
+	
+	
+	
+	
+	<util:list id="cars">
+		<ref bean="car"></ref>
+		<ref bean="car"></ref>
+	</util:list>
+	
+	<bean id="people3" class="collections.People">
+		<property name="name" value="NewSong"></property>
+		<property name="age" value="20"></property>
+		<property name="salary" value="200000"></property>
+		<property name="cars" ref="cars"></property>
+	</bean>
+		
+	
+	
+	
+	
+	<bean id="people4" class="collections.NewPeople">
+		<property name="name" value="NewSong"></property>
+		<property name="age" value="20"></property>
+		<property name="salary" value="200000"></property>
+		<property name="cars">
+			<map>
+				<entry key="ACar" >
+					<bean class="beans.Car">
+						<property name="name" value="QQ"></property>
+						<property name="price" value="20000"></property>
+					</bean>
+				</entry>
+				<entry key="BCar" value-ref="car"></entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="jdbcutils" class="collections.JDBCUtils">
+		<property name="prop">
+			<props>
+				<prop key="driverClassName">com.mysql.jdbc.Driver</prop>
+				<prop key="url">jdbc\:mysql\://localhost/restaurant</prop>
+				<prop key="username">root</prop>
+				<prop key="password">130119</prop>
+				<prop key="initialSize">10</prop>
+				<prop key="maxActive">50</prop>
+				<prop key="maxIdle">20</prop>
+				<prop key="minIdle">5</prop>
+				<prop key="maxWait">60000</prop>
+				<prop key="connectionProperties">useUnicode=true;characterEncoding=gbk</prop>
+				<prop key="defaultAutoCommit">true</prop>
+				<prop key="defaultTransactionIsolation">READ_UNCOMMITTED</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="people5" class="collections.People" p:age="23" 
+		p:name="NewSong" p:cars-ref="cars" p:salary="300000"> 
+	</bean>
+	
+	
+	
+	
+	
+ </beans>
