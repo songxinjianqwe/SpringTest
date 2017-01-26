@@ -17,3 +17,5 @@
 /generic/
 /scope/
 /spel/
+/aop/
+/aop-beforeadvice.xml

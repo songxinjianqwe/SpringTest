@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
-	<pluginVersion><![CDATA[3.8.1.201607290748-RELEASE]]></pluginVersion>
+	<pluginVersion><![CDATA[3.7.1.me201602031002]]></pluginVersion>
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
@@ -16,6 +16,7 @@
 		<config>src/beans-factoryBean.xml</config>
 		<config>src/beans-annotation.xml</config>
 		<config>src/beans-generic.xml</config>
+		<config>src/aop-beforeadvice.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
